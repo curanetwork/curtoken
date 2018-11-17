@@ -1,0 +1,25 @@
+{
+  "name": "curtoken",
+  "version": "1.0.0",
+  "description": "ERC20 token for Cura Network",
+  "main": "truffle.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/curanetwork/curtoken.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/curanetwork/curtoken/issues"
+  },
+  "homepage": "https://github.com/curanetwork/curtoken#readme",
+  "dependencies": {
+    "dotenv": "^6.1.0",
+    "openzeppelin-solidity": "^2.0.0",
+    "truffle-hdwallet-provider": "^0.0.6"
+  }
+}
