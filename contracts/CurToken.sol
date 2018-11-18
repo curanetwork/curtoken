@@ -1,44 +1,21 @@
 pragma solidity ^0.4.24;
 
 import "openzeppelin-solidity/contracts/token/ERC20/ERC20.sol";
+import "openzeppelin-solidity/contracts/token/ERC20/ERC20Detailed.sol";
 
 /**
  * @title CurToken
- * @dev The decimals are only for visualization purposes.
- * All the operations are done using the smallest and indivisible token unit,
- * just as on Ethereum all the operations are done in wei.
+ * @dev ERC20 token contract for Cura Network ICO and bounty campaigns.
  */
-contract CurToken is ERC20 {
-  string private _name;
-  string private _symbol;
-  uint8 private _decimals;
+contract CurToken is ERC20, ERC20Detailed {
 
-  constructor() public {
-    _name = "CurToken";
-    _symbol = "CUR";
-    _decimals = 8;
-    balances[msg.sender] = 500000000 * (10 ** uint256(_decimals));
-    totalSupply = 500000000 * (10 ** uint256(_decimals));
-  }
+  uint256 constant INITIAL_SUPPLY = 500000000 * (10 ** uint256(decimals()));
 
   /**
-   * @return the name of the token.
+   * @dev Constructor that gives msg.sender all of existing tokens.
    */
-  function name() public view returns(string) {
-    return _name;
+  constructor() public ERC20Detailed("CurToken", "CUR", 8) {
+    _mint(msg.sender, INITIAL_SUPPLY);
   }
 
-  /**
-   * @return the symbol of the token.
-   */
-  function symbol() public view returns(string) {
-    return _symbol;
-  }
-
-  /**
-   * @return the number of decimals of the token.
-   */
-  function decimals() public view returns(uint8) {
-    return _decimals;
-  }
 }
